@@ -235,7 +235,12 @@ public class DynamicArray<T> : IList<T>, INotifyCollectionChanged
 
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return ((IEnumerable) this).GetEnumerator();
+        var current = _head;
+        while (current != null)
+        {
+            yield return current.Data;
+            current = current.Next;
+        }
     }
 
     IEnumerator<T> IEnumerable<T>.GetEnumerator()
