@@ -140,7 +140,7 @@ public class DynamicArray<T> : IList<T>, INotifyCollectionChanged
             if (Count == 0)
                 _tail = _head;
             else
-                temp.Previous = node;
+                temp!.Previous = node;
 
             Count++;
         }
@@ -218,18 +218,18 @@ public class DynamicArray<T> : IList<T>, INotifyCollectionChanged
             var current = _head;
 
             for (var i = 0; i < index; i++)
-                current = current.Next;
+                current = current!.Next;
 
-            return current;
+            return current!;
         }
         else
         {
             var current = _tail;
 
             for (var i = Count - 1; i > index; i--)
-                current = current.Previous;
+                current = current!.Previous;
 
-            return current;
+            return current!;
         }
     }
 

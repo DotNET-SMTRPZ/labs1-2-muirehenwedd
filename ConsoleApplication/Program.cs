@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Collections;
+﻿using Collections;
 
 namespace ConsoleApplication;
 
@@ -31,13 +30,13 @@ class Program
         c.Insert(4, 99);
         Console.WriteLine("Array after inserting '99' at index 4:");
         c.Print();
-        
+
         Console.WriteLine($"Elem at 4 is {c[4]}");
-        
+
         Console.WriteLine("assignment: elem at 4=999");
         c[4] = 999;
         c.Print();
-        
+
         Thread.Sleep(Timeout.Infinite);
     }
 }
@@ -45,5 +44,5 @@ class Program
 static class EnumerableExtensions
 {
     public static void Print<T>(this IEnumerable<T> enumerable) =>
-        Console.WriteLine($"[{string.Join(", ", enumerable.Select(t => t.ToString()))}]\n");
+        Console.WriteLine($"[{string.Join(", ", enumerable.Select(t => t?.ToString() ?? "null"))}]\n");
 }
